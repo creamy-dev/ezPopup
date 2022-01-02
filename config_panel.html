@@ -28,7 +28,9 @@
       <input type="text" id="textid0" value="id_0">
       <h5>Background Color</h5>
       <input type="text" id="textid1" value="id_1">
+      <h5>Streamer Background Color</h5>
+      <input type="text" id="textid3" value="id_3">
       <h5>Text</h5>
       <input type="text" id="textid2" value="id_2"><br><br>
-      <button onclick="document.saveSettings({'backgroundColor': document.getElementById('textid1').value, 'textColor': document.getElementById('textid0').value, 'text': document.getElementById('textid2').value}); document.getElementById('btn').innerHTML = 'Changes saved.'" id="btn">Save Changes</button>
+      <button onclick="document.saveSettings({'backgroundColor': document.getElementById('textid1').value, 'textColor': document.getElementById('textid0').value, 'text': document.getElementById('textid2').value, 'streamerBackgroundColor': document.getElementById('textid3').value}); document.getElementById('btn').innerHTML = 'Changes saved.'" id="btn">Save Changes</button>
     </html>
