@@ -111,8 +111,8 @@ class popup {
               }
             }
 
-            //this.htmlContents = await doRequest("https://raw.githubusercontent.com/creamy-dev/ezPopup/main/config_panel.html");
-            this.htmlContents = await doRequest("http://localhost:3000/html");
+            this.htmlContents = await doRequest("https://raw.githubusercontent.com/creamy-dev/ezPopup/main/config_panel.html");
+            //this.htmlContents = await doRequest("http://localhost:3000/html");
 
             rgblog(this.htmlContents);
 
