@@ -71,28 +71,25 @@ let textChangeAPI = {
     }
   },
   "generateTextBox": async function () {
-    let countOfElem = -1;
     try {
+      let countOfElem = 0;
       for (element of document.getElementsByTagName("div")) {
         if (element.className.startsWith("notice")) {
-          countOfElem++;
-
-          if (element.innerHTML !== config.text && countOfElem == 0) {
-            let elem = document.createElement("div")
-            elem.className = "notice-3bPHh- colorStreamerMode-2SJAUN";
-            elem.innerHTML = 'Generated text box.';
-            element.insertBefore(elem, element.firstChild);
+          if (countOfElem == 0) {
+            if (element.innerText == config.text) {
+              element.parentNode.removeChild(element);
+            }
           }
+  
+          countOfElem++;
         }
       }
 
-      if (countOfElem == -1) {
-        let elem = document.createElement("div")
-        elem.className = "notice-3bPHh- colorStreamerMode-2SJAUN";
-        elem.innerHTML = 'Generated text box.';
+      let elem = document.createElement("div")
+      elem.className = "notice-3bPHh- colorStreamerMode-2SJAUN";
+      elem.innerHTML = 'Generated text box.';
 
-        document.getElementsByClassName("base-3dtUhz")[0].insertBefore(elem, document.getElementsByClassName("base-3dtUhz")[0].firstChild);
-      }
+      document.getElementsByClassName("base-3dtUhz")[0].insertBefore(elem, document.getElementsByClassName("base-3dtUhz")[0].firstChild);
     } catch (e) {
       rgblog(e);
       while (true) {
@@ -110,7 +107,7 @@ class popup {
   getName() { return "ezPopup"; }
   getShortName() { return "ezPopup"; }
   getDescription() { return "This shows a configurable popup on the top of the page."; }
-  getVersion() { return "0.3.1"; }
+  getVersion() { return "0.3.2"; }
   getAuthor() { return "creamy-dev"; }
 
   getSettingsPanel() {
