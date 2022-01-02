@@ -97,6 +97,44 @@ class popup {
 
     unload() { return true; }
 
+    async switchDaemon() {
+      rgblog("Actvating SwitcherooDaemon");
+
+      function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+      }
+
+      while (true) {
+        await sleep(500);
+        let hasFound = false;
+
+        for (element of document.getElementsByTagName("div")) {
+          let count = 0;
+
+          if (element.className.startsWith("notice")) {
+            rgblog("found notice",count);
+            hasFound = true;
+
+            if (count !== 0) {
+              //element.style.zIndex = -10;
+              rgblog("found element!");
+            }
+
+            count++;
+          }
+        }
+
+        if (!hasFound) {
+          textChangeAPI.generateTextBox();
+          textChangeAPI.changeBackground(config.backgroundColor);
+          textChangeAPI.changeColor(config.textColor);
+          textChangeAPI.changeText(config.text);
+        }
+
+        rgblog("done finding notices");
+      }
+    }
+
     async start() {
           try {
             if (fs.existsSync(__dirname + "/ezPopupConfig.json")) {
@@ -134,6 +172,8 @@ class popup {
               textChangeAPI.changeText(config.text);
               return(true);
             }
+
+            this.switchDaemon();
           } catch (err) {
             rgblog(err);
           }
@@ -145,7 +185,6 @@ class popup {
             element.parentNode.removeChild(element);
           }
         }
-
     };
 
     initialize() {
