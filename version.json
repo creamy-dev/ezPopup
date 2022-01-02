@@ -1,4 +1,4 @@
 {
- "version": "0.3.1",
- "releaseNotes": "* Adds auto updating"
+ "version": "0.3.2",
+ "releaseNotes": "* Revamps Window Creation\n* Fixes bugs when OBS launches before Discord"
 }
