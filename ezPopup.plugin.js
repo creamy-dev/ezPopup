@@ -155,9 +155,10 @@ class popup {
         textChangeAPI.changeColor(config.textColor);
         textChangeAPI.changeText(config.text);
       }
+      
+      let tempCountColorCheck = 0;
 
       if (document.getElementsByClassName("notice-3bPHh-").length - 1 == 0) {
-        let tempCountColorCheck = 0;
         for (element of document.getElementsByTagName("div")) {
           if (element.className.startsWith("notice")) {
             if (tempCountColorCheck == 0) {
@@ -168,7 +169,6 @@ class popup {
           }
         }
       } else {
-        let tempCountColorCheck = 0;
         for (element of document.getElementsByTagName("div")) {
           if (element.className.startsWith("notice")) {
             if (tempCountColorCheck == 0) {
@@ -197,12 +197,14 @@ class popup {
 
     if (updateCheck.status == 200) {
       updateCheck = JSON.parse(updateCheck.body);
+      
+      rgblog("Checking if version is newer...");
+      rgblog("Current version:", this.getVersion());
+      rgblog("Latest version:", updateCheck.version);
 
       if (updateCheck.version > this.getVersion()) {
-        rgblog("Attempting to update plugin...");
-        rgblog("Current version:", this.getVersion());
-        rgblog("Latest version:", updateCheck.version);
-
+        rgblog("Check passed!");
+        rgblog("Attempting to update...");
         let updateArr = ["There is an update avalible!", "\n", "Changelog:"]
 
         for (let item of updateCheck.releaseNotes.split("\n")) {
