@@ -1,4 +1,4 @@
 {
- "version": "0.3.2",
- "releaseNotes": "* Revamps Window Creation\n* Fixes bugs when OBS launches before Discord"
+ "version": "0.4.0",
+ "releaseNotes": "* Shows successful install as a message at the bottom of the screen."
 }
