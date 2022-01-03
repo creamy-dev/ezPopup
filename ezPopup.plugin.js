@@ -107,7 +107,7 @@ class popup {
   getName() { return "ezPopup"; }
   getShortName() { return "ezPopup"; }
   getDescription() { return "This shows a configurable popup on the top of the page."; }
-  getVersion() { return "0.3.2"; }
+  getVersion() { return "0.4.0"; }
   getAuthor() { return "creamy-dev"; }
 
   getSettingsPanel() {
