@@ -223,6 +223,8 @@ class popup {
 
                 rgblog("Writing new version to file...");
                 fs.writeFileSync(path.join(__dirname, "ezPopup.plugin.js"), data);
+                
+                BdApi.showToast("Updated successfully.", {type:"success"})
 
                 rgblog("Reloading plugin...");
                 this.killSwitch = true;
