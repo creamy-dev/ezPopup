@@ -1,4 +1,5 @@
 {
- "version": "0.4.0",
- "releaseNotes": "* Shows successful install as a message at the bottom of the screen."
+ "version": "0.4.1",
+ "releaseNotes": "* Warning, untested changes. Please do not update, unless you want to beta test.\n* Changes updater to request markdown file",
+ "url": "https://raw.githubusercontent.com/creamy-dev/ezPopup/main/changelog.md"
 }

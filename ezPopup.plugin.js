@@ -107,7 +107,7 @@ class popup {
   getName() { return "ezPopup"; }
   getShortName() { return "ezPopup"; }
   getDescription() { return "This shows a configurable popup on the top of the page."; }
-  getVersion() { return "0.4.0"; }
+  getVersion() { return "0.4.1"; }
   getAuthor() { return "creamy-dev"; }
 
   getSettingsPanel() {
@@ -205,16 +205,19 @@ class popup {
       if (updateCheck.version > this.getVersion()) {
         rgblog("Check passed!");
         rgblog("Attempting to update...");
-        let updateArr = ["There is an update avalible!", "\n", "Changelog:"]
 
-        for (let item of updateCheck.releaseNotes.split("\n")) {
+        let changelog = await doRequest(updateCheck.url);
+
+        let updateArr = ["Changelog:"]
+
+        for (let item of changelog) {
           updateArr.push(item);
         }
 
         BdApi.showConfirmationModal("Update Avalible", updateArr,
           {
             confirmText: "Update",
-            cancelText: "NO. I don't want to update.",
+            cancelText: "Cancel",
             onConfirm: async () => {
               rgblog("Downloading new version...");
 
